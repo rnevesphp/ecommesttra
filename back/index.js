@@ -1,11 +1,17 @@
 'use strict'
 
+// importamos o express para inicializar uma aplicaçao web 
 const express = require('express');
+
+// importamos as rotas da aplicacao
+const productsRouter = require('./ROUTES/routes')
 
 const app = express();
 const PORT = 3000 || process.env.PORT;
 
 app.use(express.json());
+
+app.use('/products', productsRouter);
 
 // configuramos a porta do servidor
 app.listen(PORT, () => {
