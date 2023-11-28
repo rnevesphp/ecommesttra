@@ -1,57 +1,41 @@
 const express = require('express');
-// responsavel de inicializar o roteamenteo 
-const router = express.Router();
 const crypto = require('crypto');
 
+const router = express.Router();
+
 const products = [
-    {
-        id: crypto.randomUUID(),
-        name: 'Product A',
-        categoria: 'eletrônicos',
-        price: '$20'
-    },
-    {
-        id: crypto.randomUUID(),
-        name: 'Product B',
-        categoria: 'moveis',
-        price: '$35'
-    },
-    {
-        id: crypto.randomUUID(),
-        name: 'Product C',
-        categoria: 'limpeza',
-        price: '$18'
-    },
-    {
-        id: crypto.randomUUID(),
-        name: 'Product D',
-        categoria: 'roupas',
-        price: '$49'
-    },
-    {
-        id: crypto.randomUUID(),
-        name: 'Product E',
-        categoria: 'cozinha',
-        price: '$76'
-    },
-    {
-        id: crypto.randomUUID(),
-        name: 'Product F',
-        categoria: 'jogos',
-        price: '$25'
-    },
-    {
-        id: crypto.randomUUID(),
-        name: 'Product G',
-        categoria: 'esportes',
-        price: '$12'
-    }
+    { id: 1, name: 'Product A', category: 'eletrônicos', price: '$20' }, { id: 2, name: 'Product B', category: 'moveis', price: '$35' }, { id: 3, name: 'Product C', category: 'limpeza', price: '$18' }
 ]
 
 // router get -> lista o array com todos os produtos
 router.get('/', (req, res) => {
+    res.send(products)
+})
+
+router.get('/:id', (req, res) => {
+    const id = req.params.id
+    const product = products.find(product => product.id == id);
+    if (!product) return res.status(400).send({ error: "Produto não encontrado" })
     res.send(product)
 })
 
+router.post('/add', (req, res) => {
+    const product = req.body;
+    const newProduct = {
+        "id": crypto.randomUUID(),
+        ...product
+    };
+    if (!product || !product.name || !product.category || !product.price) res.status(400).send('Faltam dados do produto');
+    products.push(newProduct);
+    res.status(201).send('Produto cadastrado corretamente');
+})
+
+
+router.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    const index = products.findIndex(product => product.id == id)
+    products.splice(index, 1)
+    res.send('Produto excluido com sucesso');
+})
 // exportamos as rotas
 module.exports = router; 
