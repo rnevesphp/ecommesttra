@@ -30,7 +30,6 @@ router.post('/add', (req, res) => {
     res.status(201).send('Produto cadastrado corretamente');
 })
 
-
 router.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
     const index = products.findIndex(product => product.id == id)
