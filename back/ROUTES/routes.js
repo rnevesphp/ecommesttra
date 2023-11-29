@@ -1,5 +1,6 @@
 const express = require('express');
 const crypto = require('crypto');
+const pool = require('../DB-tables/dbConnection')
 
 const router = express.Router();
 
@@ -8,26 +9,37 @@ const products = [
 ]
 
 // router get -> lista o array com todos os produtos
-router.get('/', (req, res) => {
-    res.send(products)
+router.get('/', async (req, res) => {
+    const { rows } = await pool.query('select * from products');
+    console.log(rows);
+    res.send(rows);
 })
 
-router.get('/:id', (req, res) => {
+
+router.get('/:id', async (req, res) => {
     const id = req.params.id
-    const product = products.find(product => product.id == id);
+    const { rows } = await pool.query('select * from products where id = $1', [id])
+
     if (!product) return res.status(400).send({ error: "Produto não encontrado" })
     res.send(product)
 })
 
-router.post('/add', (req, res) => {
+// post 
+router.post('/add', async (req, res) => {
     const product = req.body;
-    const newProduct = {
-        "id": crypto.randomUUID(),
-        ...product
-    };
-    if (!product || !product.name || !product.category || !product.price) res.status(400).send('Faltam dados do produto');
-    products.push(newProduct);
-    res.status(201).send('Produto cadastrado corretamente');
+
+    const { rows } = await pool.query('INSERT INTO products (id, name, category, price) VALUES ($1, $2, $3, $4) RETURNING *',
+        [crypto.randomUUID(), product.name, product.category, product.price]
+    )
+
+    if (!product || !product.name || !product.category || !product.price) {
+        res.status(400).send('Faltam dados do produto')
+        return;
+    }
+
+    res.status(201).json({
+        'Produto cadastrado corretamente'
+    });
 })
 
 router.delete('/delete/:id', (req, res) => {
@@ -36,5 +48,20 @@ router.delete('/delete/:id', (req, res) => {
     products.splice(index, 1)
     res.send('Produto excluido com sucesso');
 })
+
+
+router.put('/edit/:id', (req, res) => {
+    const id = req.params.id;
+    const editProduct = req.body;
+    const index = products.findIndex(product => product.id == id)
+
+    // ... = copia da variavel
+    products[index] = {
+        ...products[index],
+        ...editProduct
+    }
+
+})
+
 // exportamos as rotas
 module.exports = router; 
