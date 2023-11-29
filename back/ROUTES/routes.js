@@ -76,4 +76,12 @@ router.put('/edit/:id', async (req, res) => {
 })
 
 // exportamos as rotas
-module.exports = router; 
+module.exports = router;
+
+/*  SELECT * FROM products // GET ALL
+'SELECT * FROM products WHERE id = $1', [id]
+'INSERT INTO products (id, name, category, price) VALUES ($1, $2, $3, $4) RETURNING *',
+    [crypto.randomUUID(), product.name, product.category, product.price]
+'DELETE FROM products WHERE id = $1 RETURNING *', [id]
+'UPDATE products SET name = $1, category = $2, price = $3 WHERE id = $4 RETURNING *',
+    [editProduct.name, editProduct.category, editProduct.price, id] */
