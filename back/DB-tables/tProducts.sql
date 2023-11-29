@@ -15,7 +15,7 @@ VALUES
 ('1a2b3c4d-5e6f-7890-abcd-efgh1234ijkl', 'Samsung Galaxy S21 Ultra', 'Smartphones', 1399.99),
 ('5678abcd-9012-3456-789a-bcde1234fghi', 'Sony Bravia 4K OLED TV', 'Televisions', 2499.99),
 ('ijklmnop-qrst-uvwxy-1234-5678z9abc0d', 'Dell XPS 13 Laptop', 'Laptops', 1199.99),	
-('mnopqrst-uvwxyz-1234-5678-abcdefghijkl', 'Canon EOS R5', 'Cameras', 3499.99)
+('mnopqrst-uvwxyz-1234-5678-abcdefghijkl', 'Canon EOS R5', 'Cameras', 3499.99),
 ('2345ab67-cdef-8901-ghij-2345klm67890', 'LG OLED CX Series TV', 'Televisions', 1799.99),	
 ('abcd6789-efgh-1234-ijkl-mnop5678qrst', 'Apple MacBook Air', 'Laptops', 1099.99),
 ('uvwxy123-4567-890a-bcde-fghijklm9012', 'Nikon D850 DSLR Camera', 'Cameras', 2999.99),
@@ -27,8 +27,8 @@ VALUES
 ('yzabcd67-8901-2345-6789-ijklefg12345', 'Xbox Series X', 'Gaming Consoles', 599.99),
 ('qrstuvwx-2345-yzab-cdef-ghij5678klmn', 'Sony WH-1000XM4 Headphones', 'Headphones', 399.99),
 ('lmnop9012-3456-uvwx-yzab-cdefghijkl78', 'Samsung Galaxy Tab S7', 'Tablets', 699.99),
-('mnopqrst-uvwxyz-1234-5678-abcdefghijkl', 'LG Gram 17 Laptop', 'Laptops', 1299.99),
-('ijklmnop-qrst-uvwxy-1234-5678z9abc0d', 'Google Pixel 6', 'Smartphones', 899.99),
+('dasdasda12-uvwxyz-1234-5678-abcdefghijkl', 'LG Gram 17 Laptop', 'Laptops', 1299.99),
+('12jhsq32a-qrst-uvwxy-1234-5678z9abc0d', 'Google Pixel 6', 'Smartphones', 899.99),
 ('abcd5678-efgh-ijkl-mnop-qrstuvwx9012yz', 'DJI Mavic Air 2 Drone', 'Drones', 799.99),	
 ('efgh1234-ijkl-5678-mnop-qrstuvwxy9012', 'Sony WH-CH710N Headphones', 'Headphones', 149.99);
 
