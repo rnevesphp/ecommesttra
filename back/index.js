@@ -20,7 +20,9 @@ app.listen(PORT, () => {
 
 app.get('/', (req, res) => {
     setTimeout(() => {
-        res.send('eaeeee meus fih');
+        res.send(
+            console.log('Demora 5s para aparecer no corpo da resposta')
+        );
     }, 5000);
 })
 

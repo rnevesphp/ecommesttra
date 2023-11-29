@@ -1,2 +1,8 @@
 # ignore node modules
 node_modules
+
+# ignore mac files
+.DS_Store
+
+# ignore windows files
+Thumbs.db
