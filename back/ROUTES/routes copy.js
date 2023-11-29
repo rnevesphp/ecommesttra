@@ -1,6 +1,5 @@
 const express = require('express');
 const crypto = require('crypto');
-
 const router = express.Router();
 
 const products = [
@@ -9,8 +8,7 @@ const products = [
 
 // router get -> lista o array com todos os produtos
 router.get('/', (req, res) => {
-    c
-    res.send(products)
+    res.json(products)
 })
 
 router.get('/:id', (req, res) => {
@@ -37,5 +35,7 @@ router.delete('/delete/:id', (req, res) => {
     products.splice(index, 1)
     res.send('Produto excluido com sucesso');
 })
+
+
 // exportamos as rotas
 module.exports = router; 
