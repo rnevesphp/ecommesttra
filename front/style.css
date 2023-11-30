@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+section {
+    display: flex;
+}
+
+section form {
+    display: flex;
+    flex-direction: row;
+}

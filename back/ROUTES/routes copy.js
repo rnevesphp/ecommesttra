@@ -1,4 +1,4 @@
-const express = require('express');
+/* const express = require('express');
 const crypto = require('crypto');
 const router = express.Router();
 
@@ -39,3 +39,4 @@ router.delete('/delete/:id', (req, res) => {
 
 // exportamos as rotas
 module.exports = router; 
+ */

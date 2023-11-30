@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <section class="container row">
+        <form class="col s12 m12 l12" id="myForm" onsubmit="submitForm(event);">
+            <input class="col s12 m12 l5" type="text" placeholder="Nome do produto" name="name" id="name">
+            <input class="col offset-l5" type="text" placeholder="Categoria do produto" name="category" id="category">
+            <input class="col s12 m12 l12" type="text" placeholder="Preço do produto" name="price" id="price">
+            <button class="btn">cadastrar</button>
+        </form>
+        <ul id="lista"></ul>
+    </section>
+
+    <script src="./scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+</body>
+
+</html>

@@ -32,8 +32,6 @@ VALUES
 ('abcd5678-efgh-ijkl-mnop-qrstuvwx9012yz', 'DJI Mavic Air 2 Drone', 'Drones', 799.99),	
 ('efgh1234-ijkl-5678-mnop-qrstuvwxy9012', 'Sony WH-CH710N Headphones', 'Headphones', 149.99);
 
-
-
 /* primeiro select para comprovar a inserçao dos mesmos */
 select * from products;
 
