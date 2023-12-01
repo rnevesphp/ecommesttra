@@ -7,11 +7,8 @@ const { pool } = require('../DB-tables/dbConnection');
 // router get -> lista o array com todos os produtos
 router.get('/', async (req, res) => {
     try {
-        const productDb = await pool.query('SELECT * FROM products;')
-        res.json({
-            message: "listagem dos produtos",
-            data: productDb.rows
-        })
+        const { rows } = await pool.query('SELECT * FROM products;')
+        res.send(rows);
     } catch (error) {
         console.error(error);
         res.status(500).send("Erro no servidor");
@@ -27,9 +24,10 @@ router.get('/:id', async (req, res) => {
         // verifico se existe o produto, se nao existir devolvo um 404 com a mensagem "Produto nao encontrado"
         if (rows.length === 0) {
             res.status(404).send('Produto nao encontrado');
+
         } else {
             // se encontrar o produto devolve o produto
-            res.json({ message: "listagem de proddutos", data: rows })
+            res.send(rows)
         }
     } catch (error) {
         console.error('Erro ao buscar o produto', error);
@@ -44,6 +42,7 @@ router.get('/:id', async (req, res) => {
 router.post('/add', async (req, res) => {
     const product = req.body;
     if (!product.name || !product.category || !product.price) res.status(400).send('Faltam dados do produto');
+
     const { rows } = await pool.query('INSERT INTO products (id , name, category, price) VALUES ( $1,$2, $3, $4 ) RETURNING *; ',
         [
             crypto.randomUUID(),
@@ -52,13 +51,13 @@ router.post('/add', async (req, res) => {
             product.price
         ]
     );
-    res.status(201).send({ message: 'Produto cadastrado corretamente', data: rows });
+    res.status(201).send(rows);
 })
 
 // DELETE DB -> BY ID
 router.delete('/delete/:id', async (req, res) => {
     const id = req.params.id;
-    const { rows } = await pool.query('DELTE * FROM products WHERE id = $id RETURNING *; ', [id])
+    const { rows } = await pool.query('DELETE FROM products WHERE id = $1 RETURNING * ; ', [id])
     res.json({ message: `Produto deletado com sucesso`, data: rows })
 })
 

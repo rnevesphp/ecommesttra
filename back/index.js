@@ -9,7 +9,7 @@ const cors = require('cors');
 const tProductsRouter = require('./ROUTES/routes');
 
 const app = express();
-const PORT = 3000 || process.env.PORT;
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
