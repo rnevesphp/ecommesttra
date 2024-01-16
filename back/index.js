@@ -2,14 +2,16 @@
 
 // importamos o express para inicializar uma aplicaçao web 
 const express = require('express');
+const cors = require('cors');
 
 // controle de rotas
-const productsRouter = require('./ROUTES/routes copy');
+// const productsRouter = require('./ROUTES/routes copy');
 const tProductsRouter = require('./ROUTES/routes');
 
 const app = express();
-const PORT = 3000 || process.env.PORT;
+const PORT = 3000;
 
+app.use(cors());
 app.use(express.json());
 
 /* app.use('/products', productsRouter); prodcts from array or locally */

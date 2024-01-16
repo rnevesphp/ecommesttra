@@ -1,0 +1,17 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+header {
+    border: 2px solid red;
+    height: 10rem;
+    margin: 0 0 3.5rem 0;
+}
+
+section.s-cadastro.form {
+    border: 2px solid blue;
+    margin: 3rem 0 0 0;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>E-commesttra</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+
+        </div>
+        <div class="search">
+
+        </div>
+        <div class="actions">
+
+        </div>
+    </header>
+
+    <section class="container s-cadastro">
+        <div class="form row">
+
+            <form class="col s12 m12 l12" id="myForm" onsubmit="submitForm(event);">
+                <div class="col s12 m12 l6">
+                    <input class="col s12 m12 l12" type="text" placeholder="Nome do produto" name="name" id="name">
+                </div>
+                <div class="col s12 m12 l6">
+                    <input class="col s12 m12 l12" type="text" placeholder="Categoria do produto" name="category"
+                        id="category">
+                </div>
+                <div class="col s12 m12 l12">
+                    <input class="col s12 m12 l12" type="text" placeholder="Preço do produto" name="price" id="price">
+                </div>
+                <div class="col s12">
+                    <button type="submit" class="btn green lighten-1">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="row">
+            <ul class="col s12 m12 l12" id="lista">
+
+            </ul>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
